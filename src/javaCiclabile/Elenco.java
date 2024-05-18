@@ -44,10 +44,11 @@ public void addElemento(int nuovoInt) {
 			break;
 //		Per ciclare la lista e sovrascrivere dai primi, devo dire in questo if
 //		che l'indexInterno = 0 e riparte tutto
-		} else { indexInterno++;}
+		} else { indexInterno++;
+		}
 	}
+	elementi[indexInterno] = nuovoInt;
 		//if(indexInterno != slots - 1) {
-		elementi[indexInterno] = nuovoInt;
 		/*}else  if(elementi[slots] != 0) {
 			elementi[slots] = nuovoInt;
 		} else {
