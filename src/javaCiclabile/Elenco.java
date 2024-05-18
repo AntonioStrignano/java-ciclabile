@@ -17,7 +17,7 @@ public class Elenco {
 	
 	public int getElementoSuccessivo() {
 		int nextInt = 0;
-		if(index == slots - 1) {
+		if(elementi[index +1 ] == 0) {
 			index = - 1;
 		}
 		nextInt = elementi[index + 1];
@@ -31,22 +31,28 @@ public class Elenco {
 
 //		BONUS
 	public Elenco() {
-		slots = 5;
 		elementi = new int[5];
+		slots = elementi.length;
 		index = 0;
 	};
 public void addElemento(int nuovoInt) {
 	int indexInterno = 0;
+// questo ciclo while serve a trovare il primo slot libero
 	while(elementi[indexInterno] != 0) {
-		if(indexInterno == slots) {
+		if(indexInterno == slots - 1) {
 			System.out.println("Non ci sono altri slots liberi.");
 			break;
-		}
-		indexInterno++;
+//		Per ciclare la lista e sovrascrivere dai primi, devo dire in questo if
+//		che l'indexInterno = 0 e riparte tutto
+		} else { indexInterno++;}
 	}
-		if(indexInterno != slots) {
+		//if(indexInterno != slots - 1) {
 		elementi[indexInterno] = nuovoInt;
-	}
+		/*}else  if(elementi[slots] != 0) {
+			elementi[slots] = nuovoInt;
+		} else {
+			System.out.println("Non ci sono altri slots liberi.");
+		}*/
 	}
 	
 //		GETTER E SETTER

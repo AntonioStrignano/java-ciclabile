@@ -10,14 +10,16 @@ public static void main(String[] args) {
 			+ "reagire male.\nDiciamo 'no' alla violenza contro gli scanner."
 			+ "\n==========================");
 	Scanner input = new Scanner(System.in);
-	int[] elencoCostr = {54,74,98,63};
-	Elenco elenco = new Elenco(elencoCostr);
-//toString artigianale pigro di testing
-	for (int i = 0; i < elenco.getElementi().length; i++) {
-		System.out.println(elenco.getElementi()[i]);
-	}
-	System.out.println("Numero slots: " + elenco.getSlots());
+	//	int[] elencoCostr = {54,74,98,63};
+	//	Elenco elenco = new Elenco(elencoCostr);
+	//toString artigianale pigro di testing
+//	for (int i = 0; i < elenco.getElementi().length; i++) {
+//		System.out.println(elenco.getElementi()[i]);
+//	}
+//	System.out.println("Numero slots: " + elenco.getSlots());
 	
+	
+	Elenco elenco = new Elenco();
 	int menu = 0;
 	System.out.println();
 	menu = ui();
@@ -36,9 +38,20 @@ public static void main(String[] args) {
 		break;
 		
 		case 4: System.out.println("Quale numero vuoi aggiungere?");
-		
+		int nuovoInt = input.nextInt();
+		input.nextLine();
+		elenco.addElemento(nuovoInt);
 		menu = ui();
 		break;
+		
+		case 5:for (int i = 0; i < elenco.getElementi().length; i++) {
+			if(elenco.getElementi()[i] != 0) {
+			System.out.println(elenco.getElementi()[i]);
+			}
+		}
+		menu = ui();
+		break;
+			
 		default: System.out.println("Valore inserito non valido.");
 		menu = ui();
 		}
@@ -56,6 +69,7 @@ public static int ui() {
 			+ "\n2. Ci sono altri numeri successivi?"
 			+ "\n3. Numero attuale"
 			+ "\n4. Aggiungi numero"
+			+ "\n5. Stampa elenco numeri"
 			+ "\n0. Esci");
 	menu = input.nextInt();
 	input.nextLine();
